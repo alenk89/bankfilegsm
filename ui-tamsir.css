@@ -44456,7 +44456,7 @@ html {
 }
 
 .bg-primary {
-  background: #6571ff;
+  background: #19a7ce;
 }
 
 html,
@@ -44685,7 +44685,7 @@ ol {
   -webkit-transform: translate(-50%, -50%) rotate(45deg);
   -ms-transform: translate(-50%, -50%) rotate(45deg);
   transform: translate(-50%, -50%) rotate(45deg);
-  border-top: 2px solid #6571ff;
+  border-top: 2px solid #19a7ce;
   border-right: 2px solid rgba(255, 55, 95, 0);
   border-bottom: 2px solid rgba(255, 55, 95, 0);
   border-left: 2px solid rgba(255, 55, 95, 0);
@@ -44702,7 +44702,7 @@ ol {
   -webkit-transform: translate(-50%, -50%) rotate(45deg);
   -ms-transform: translate(-50%, -50%) rotate(45deg);
   transform: translate(-50%, -50%) rotate(45deg);
-  border-top: 2px solid #6571ff;
+  border-top: 2px solid #19a7ce;
   border-right: 2px solid rgba(255, 55, 95, 0);
   border-bottom: 2px solid rgba(255, 55, 95, 0);
   border-left: 2px solid rgba(255, 55, 95, 0);
@@ -44719,8 +44719,8 @@ ol {
   -webkit-transform: translate(-50%, -50%) rotate(45deg);
   -ms-transform: translate(-50%, -50%) rotate(45deg);
   transform: translate(-50%, -50%) rotate(45deg);
-  border-top: 2px solid #6571ff;
-  border-right: 2px solid #6571ff;
+  border-top: 2px solid #19a7ce;
+  border-right: 2px solid #19a7ce;
   border-bottom: 2px solid rgba(255, 55, 95, 0);
   border-left: 2px solid rgba(255, 55, 95, 0);
 }
@@ -44736,9 +44736,9 @@ ol {
   -webkit-transform: translate(-50%, -50%) rotate(45deg);
   -ms-transform: translate(-50%, -50%) rotate(45deg);
   transform: translate(-50%, -50%) rotate(45deg);
-  border-top: 2px solid #6571ff;
-  border-right: 2px solid #6571ff;
-  border-bottom: 2px solid #6571ff;
+  border-top: 2px solid #19a7ce;
+  border-right: 2px solid #19a7ce;
+  border-bottom: 2px solid #19a7ce;
   border-left: 2px solid rgba(255, 55, 95, 0);
 }
 
@@ -44753,10 +44753,10 @@ ol {
   -webkit-transform: translate(-50%, -50%) rotate(45deg);
   -ms-transform: translate(-50%, -50%) rotate(45deg);
   transform: translate(-50%, -50%) rotate(45deg);
-  border-top: 2px solid #6571ff;
-  border-right: 2px solid #6571ff;
-  border-bottom: 2px solid #6571ff;
-  border-left: 2px solid #6571ff;
+  border-top: 2px solid #19a7ce;
+  border-right: 2px solid #19a7ce;
+  border-bottom: 2px solid #19a7ce;
+  border-left: 2px solid #19a7ce;
 }
 
 .progress-btn:hover {
@@ -44889,7 +44889,7 @@ ol {
 }
 
 .btn--color-radical-red {
-  color: #6571ff;
+  color: #19a7ce;
 }
 
 .btn--color-pink-swan {
@@ -44909,7 +44909,7 @@ ol {
 }
 
 .btn--radical-red {
-  background: #6571ff;
+  background: #19a7ce;
 }
 
 .btn--bg-white {
@@ -45246,7 +45246,7 @@ span.ripple {
 
 .searchable ul li.selected {
   text-transform: capitalize;
-  background-color: #6571ff;
+  background-color: #19a7ce;
   color: #fff;
 }
 
@@ -45292,7 +45292,7 @@ span.ripple {
 .irs--round .irs-from,
 .irs--round .irs-to,
 .irs--round .irs-single {
-  background-color: #6571ff;
+  background-color: #19a7ce;
 }
 
 .irs--round .irs-from::before,
@@ -45387,7 +45387,7 @@ span.ripple {
 .hero-area--style-1 .inner-wrapper .content .title-tag {
   text-transform: capitalize;
   font-weight: 400;
-  color: #6571ff;
+  color: #19a7ce;
 }
 
 .hero-area--style-1 .inner-wrapper .content .title {
@@ -45403,7 +45403,7 @@ span.ripple {
 .hero-area--style-1 .inner-wrapper .content .sub-title span {
   font-size: 25px;
   font-weight: 900;
-  color: #6571ff;
+  color: #19a7ce;
 }
 
 .hero-area--style-1 .inner-wrapper .product-img {
@@ -45437,7 +45437,7 @@ span.ripple {
 
 .hero-area--style-1.hero-area .swiper-pagination-bullet-active {
   width: 15px;
-  background: #6571ff;
+  background: #19a7ce;
   border-radius: 3px;
 }
 
@@ -45704,7 +45704,7 @@ span.ripple {
 }
 
 .product-item--style-1 .content--right .btn:hover {
-  color: #6571ff;
+  color: #19a7ce;
 }
 
 .product-item--style-1 .price {
@@ -45884,7 +45884,7 @@ span.ripple {
 }
 
 .product-item--style-4 .content .btn:hover {
-  color: #6571ff;
+  color: #19a7ce;
 }
 
 .product-item--style-4 .cart-link {
@@ -45978,7 +45978,7 @@ span.ripple {
 }
 
 .short-btn:hover {
-  color: #6571ff;
+  color: #19a7ce;
 }
 
 .short-btn span {
@@ -46248,7 +46248,7 @@ span.ripple {
 }
 
 .user-event-area .user-event--center .event-btn-link:hover {
-  color: #6571ff;
+  color: #19a7ce;
 }
 
 .event-btn-link {
@@ -46270,7 +46270,7 @@ span.ripple {
 }
 
 .event-btn-link:hover {
-  color: #6571ff;
+  color: #19a7ce;
 }
 
 .banner-bg {
@@ -46685,7 +46685,7 @@ span.ripple {
 }
 
 .product-variable-lists .color-chart .color-box--pink {
-  background: #6571ff;
+  background: #19a7ce;
 }
 
 .product-variable-lists .color-chart input[type="radio"]:checked + .color-box {
@@ -46835,7 +46835,7 @@ span.ripple {
 }
 
 .single-cart-item .content .delete-item:hover {
-  color: #6571ff;
+  color: #19a7ce;
 }
 
 .single-cart-item .content .delete-item svg {
@@ -47328,7 +47328,7 @@ span.ripple {
 
 .chat-top-area .image img {
   border-radius: 50%;
-  border: 2px solid #6571ff;
+  border: 2px solid #19a7ce;
 }
 
 .chat-top-area .image .chat-activity {
@@ -47687,7 +47687,7 @@ span.ripple {
 .shipping-method-list .check {
   display: block;
   position: absolute;
-  border: 2px solid #6571ff;
+  border: 2px solid #19a7ce;
   border-radius: 100%;
   height: 16px;
   width: 16px;
@@ -47716,7 +47716,7 @@ span.ripple {
 }
 
 .shipping-method-list input[type="radio"]:checked ~ .check::before {
-  background: #6571ff;
+  background: #19a7ce;
 }
 
 .shipping-method-list span i {
@@ -47851,7 +47851,7 @@ span.ripple {
 .header-top-area .main-menu .menu-line {
   height: 2px;
   width: 18px;
-  background: #6571ff;
+  background: #19a7ce;
   display: block;
 }
 
@@ -48090,7 +48090,7 @@ span.ripple {
   height: 1px;
   width: 15px;
   opacity: 1;
-  background-color: #6571ff;
+  background-color: #19a7ce;
   -webkit-transition-property: all;
   -o-transition-property: all;
   transition-property: all;
@@ -48196,8 +48196,8 @@ span.ripple {
   padding: 5px 10px;
   margin-bottom: 0;
   color: #212a3e;
-  background-color: #6571ff2b;
-  border-bottom: 2px solid #6571ff70;
+  background-color: #19a7ce2b;
+  border-bottom: 2px solid #19a7ce70;
   font-size: 14px;
   font-weight: 600;
 }
@@ -48284,7 +48284,7 @@ span.ripple {
     100% calc(100% + 1px),
     0 calc(100% + 1px)
   );
-  background: #6571ff;
+  background: #19a7ce;
   width: 100%;
   height: 15px;
   margin-top: -15px;
@@ -48295,7 +48295,7 @@ span.ripple {
   max-width: 100%;
   font-size: 12px;
   font-weight: 500;
-  background-color: #6571ff;
+  background-color: #19a7ce;
 }
 
 .product-list {
@@ -48375,7 +48375,7 @@ span.ripple {
   text-align: center;
   font-size: 14px;
   font-weight: 600;
-  color: #6571ff;
+  color: #19a7ce;
   align-items: center;
 }
 
@@ -48387,7 +48387,7 @@ span.ripple {
   text-align: center;
   font-size: 14px;
   font-weight: 600;
-  color: #6571ff;
+  color: #19a7ce;
 }
 
 .style-saldos {
@@ -48398,11 +48398,11 @@ span.ripple {
   text-align: center;
   font-size: 14px;
   font-weight: 600;
-  color: #6571ff;
+  color: #19a7ce;
 }
 
 .latar {
-  background: #6571ff;
+  background: #19a7ce;
   height: 170px;
   background-image: url(https://i.ibb.co/HgBBSyP/bg-a.png);
   background-size: cover;
@@ -48415,7 +48415,7 @@ span.ripple {
 }
 
 .profil {
-  background: #6571ff;
+  background: #19a7ce;
   position: fixed;
   width: 100%;
 }
@@ -48513,7 +48513,7 @@ span.ripple {
   height: 30px;
   border-radius: 5px;
   margin: 7px 0px 0px 10px;
-  background: #6571ff;
+  background: #19a7ce;
 }
 
 .badge-profils {
@@ -48567,7 +48567,7 @@ span.ripple {
 }
 
 .head {
-  background: #6571ff;
+  background: #19a7ce;
 }
 
 .icon-cs {
@@ -48644,7 +48644,7 @@ span.ripple {
 
 .modal-header {
   padding: 10px;
-  background: #6571ff;
+  background: #19a7ce;
   border-bottom: 0;
 }
 
@@ -48669,7 +48669,7 @@ span.ripple {
 .border-head {
   padding: 5px 10px;
   border-bottom: 2px solid #ced4da;
-  background: #6571ff;
+  background: #19a7ce;
 }
 
 /* === custom PasarGSM === */
