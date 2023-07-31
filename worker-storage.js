@@ -6158,7 +6158,7 @@ function append_files_to_list(path, files) {
 	          </a>
             <div class="mdui-col-sm-2 mdui-text-right dummyclass">
 	            <button onclick="window.open('${ddl_link}','_self')" class="mdui-textfield-icon mdui-btn mdui-btn-icon dummyclass" style="float: right;">
-                <i class="mdui-icon material-icons dummyclass">file_download</i>
+                <i class="fi fi-sr-down-to-line"></i>
               </button>
             </div>
 	      </li>`;
@@ -6456,7 +6456,9 @@ function file_code(path) {
 	<label class="mdui-textfield-label">Download Link</label>
 	<input class="mdui-textfield-input" type="text" value="${href}"/>
 </div>
-<a href="${href}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
+<a href="${href}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent">
+<i class="fi fi-sr-down-to-line"></i>
+</a>
 
 <script src="//cdn.jsdelivr.net/gh/cheems/goindex-extended/js/ace.js"></script>
 <script src="//cdn.jsdelivr.net/gh/cheems/goindex-extended/js/ext-language_tools.js"></script>
