@@ -6113,7 +6113,7 @@ function append_files_to_list(path, files) {
         if (item.mimeType == "application/vnd.google-apps.folder") {
             html += `<li class="mdui-list-item mdui-ripple"><a href="${p}" class="folder">
 	            <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate" title="${item.name}">
-	            <i class="fi fi-sr-move-to-folder"></i>
+	            <i class="mdui-icon icon-folder fi fi-sr-move-to-folder"></i>
 	              ${item.name}
 	            </div>
 	            <div class="mdui-col-sm-3 mdui-text-right">${item["modifiedTime"]}</div>
@@ -6150,7 +6150,7 @@ function append_files_to_list(path, files) {
             }
             html += `<li class="mdui-list-item file mdui-ripple" target="_blank"><a gd-type="${item.mimeType}" href="${p}" class="${c}">
 	          <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate" title="${item.name}">
-	          <i class="fi fi-sr-file-zipper"></i>
+	          <i class="mdui-icon icon-rar fi fi-sr-file-zipper"></i>
 	            ${item.name}
 	          </div>
 	          <div class="mdui-col-sm-3 mdui-text-right">${item["modifiedTime"]}</div>
@@ -6291,7 +6291,7 @@ function append_search_result_to_list(files) {
         if (item.mimeType == "application/vnd.google-apps.folder") {
             html += `<li class="mdui-list-item mdui-ripple"><a id="${item["id"]}" onclick="onSearchResultItemClick(this)" class="folder">
 	            <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate" title="${item.name}">
-	            <i class="fi fi-sr-move-to-folder"></i>
+	            <i class="mdui-icon icon-folder fi fi-sr-move-to-folder"></i>
 	              ${item.name}
 	            </div>
 	            <div class="mdui-col-sm-3 mdui-text-right">${item["modifiedTime"]}</div>
@@ -6313,7 +6313,7 @@ function append_search_result_to_list(files) {
             }
             html += `<li class="mdui-list-item file mdui-ripple" target="_blank"><a id="${item["id"]}" gd-type="${item.mimeType}" onclick="onSearchResultItemClick(this)" class="${c}">
 	          <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate" title="${item.name}">
-	          <i class="fi fi-sr-file-zipper"></i>
+	          <i class="mdui-icon icon-rar fi fi-sr-file-zipper"></i>
 	            ${item.name}
 	          </div>
 	          <div class="mdui-col-sm-3 mdui-text-right">${item["modifiedTime"]}</div>
