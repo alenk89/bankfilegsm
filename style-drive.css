@@ -41344,5 +41344,9 @@ body.dark-mode.nk-body.ui-softy, body.dark-mode.nk-body.ui-shady {
   background-color: #6576ff !important;
   border-color: #6576ff !important;
 }
+.countitems{
+  display: flex;
+    align-items: center;
+  }
 
 /*! END @iO */
