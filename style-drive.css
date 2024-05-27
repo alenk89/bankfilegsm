@@ -4680,8 +4680,8 @@ div.dataTables_wrapper div.dataTables_filter .input-group.has-validation > .form
 
 .alert {
   --bs-alert-bg: transparent;
-  --bs-alert-padding-x: 1.25rem;
-  --bs-alert-padding-y: 1rem;
+  --bs-alert-padding-x: 0rem;
+  --bs-alert-padding-y: 0rem;
   --bs-alert-margin-bottom: 1rem;
   --bs-alert-color: inherit;
   --bs-alert-border-color: transparent;
@@ -4865,8 +4865,8 @@ div.dataTables_wrapper div.dataTables_filter .input-group.has-validation > .form
   --bs-list-group-border-color: rgba(0, 0, 0, 0.125);
   --bs-list-group-border-width: 1px;
   --bs-list-group-border-radius: 4px;
-  --bs-list-group-item-padding-x: 1.25rem;
-  --bs-list-group-item-padding-y: 0.75rem;
+  --bs-list-group-item-padding-x: 0.35rem;
+  --bs-list-group-item-padding-y: 0.1rem;
   --bs-list-group-action-color: #495057;
   --bs-list-group-action-hover-color: #495057;
   --bs-list-group-action-hover-bg: #f8f9fa;
