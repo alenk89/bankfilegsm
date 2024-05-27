@@ -4728,6 +4728,7 @@ div.dataTables_wrapper div.dataTables_filter .input-group.has-validation > .form
   --bs-alert-color: #263445;
   --bs-alert-bg: #e7e9ec;
   --bs-alert-border-color: #c3c9d0;
+  display: none;
 }
 .alert-secondary .alert-link {
   color: #1e2a37;
