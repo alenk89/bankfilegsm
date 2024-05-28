@@ -41351,6 +41351,7 @@ body.dark-mode.nk-body.ui-softy, body.dark-mode.nk-body.ui-shady {
   }
 .p-1x{
     padding: 5px 10px;
+    margin: 3px;
 }
 
 /*! END @iO */
