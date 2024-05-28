@@ -751,14 +751,25 @@ function append_files_to_list(path, files) {
                 html += file_icon
             }
 
-            html += `
-             <a class="countitems size_items list-group-item-action" style="text-decoration: none;" href="${pn}">${item.name}</a>${UI.display_download ? 
+            html += 
+            `
+             <a class="countitems size_items list-group-item-action" style="text-decoration: none;" href="${pn}">${item.name}</a>
+
+             ${UI.display_size ? `<span class="badge bg-primary float-end"> ` + item['size'] + ` </span>`
+             
+             : ``}
+             ${UI.display_time ? ` <span class="badge bg-info float-end"> ` + item['modifiedTime'] + ` </span>` : ``}
+
+             ${UI.display_download ? 
                 `
                 <a href="${link}" class="btn btn-dim btn-primary">
                 <i class="ri-download-2-line fs-3 me-1"></i>
                 <span>Download</span>
                 </a>
-             ` : ``}${UI.display_size ? `<span class="badge bg-primary float-end"> ` + item['size'] + ` </span>` : ``}${UI.display_time ? ` <span class="badge bg-info float-end"> ` + item['modifiedTime'] + ` </span>` : ``}</div>
+             ` 
+             : ``}
+
+             </div>
              `;
         }
     }
