@@ -755,6 +755,9 @@ function append_files_to_list(path, files) {
             html += 
             `
              <a class="countitems size_items list-group-item-action" style="text-decoration: none;" href="${link}">${item.name}</a>
+             ${UI.display_size ? `<span class="badge badge-dim bg-dark p-1x float-end"> ` + item['size'] + ` </span>`
+             : ``}
+             ${UI.display_time ? ` <span class="badge badge-dim bg-dark p-1x float-end"> ` + item['modifiedTime'] + ` </span>` : ``}
              ${UI.display_download ? 
                 `
                 <a href="${link}" class="btn btn-dim btn-primary p-1x">
@@ -763,11 +766,6 @@ function append_files_to_list(path, files) {
                 </a>
              ` 
              : ``}
-             
-             ${UI.display_size ? `<span class="badge badge-dim bg-dark p-1x float-end"> ` + item['size'] + ` </span>`
-             
-             : ``}
-             ${UI.display_time ? ` <span class="badge badge-dim bg-dark p-1x float-end"> ` + item['modifiedTime'] + ` </span>` : ``}
              
              </div>
              `;
