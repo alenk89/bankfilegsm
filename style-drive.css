@@ -4911,11 +4911,12 @@ div.dataTables_wrapper div.dataTables_filter .input-group.has-validation > .form
 
 .list-group-item {
   position: relative;
-  display: block;
+  display: flex;
   padding: var(--bs-list-group-item-padding-y) var(--bs-list-group-item-padding-x);
   color: var(--bs-list-group-color);
   background-color: var(--bs-list-group-bg);
   border: none;
+  align-items: center;
 }
 .list-group-item:first-child {
   border-top-left-radius: inherit;
