@@ -13747,7 +13747,7 @@ a.alert:hover {
   letter-spacing: 0.05rem;
 }
 .breadcrumb-item a:not(:hover) {
-  color: #8094ae;
+  color: #364a63;
 }
 .breadcrumb-pipe .breadcrumb-item + .breadcrumb-item::before {
   content: "|";
