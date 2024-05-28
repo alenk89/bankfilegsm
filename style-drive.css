@@ -41349,5 +41349,8 @@ body.dark-mode.nk-body.ui-softy, body.dark-mode.nk-body.ui-shady {
   display: flex;
     align-items: center;
   }
+.p-1x{
+    padding: 5px 10px;
+}
 
 /*! END @iO */
