@@ -576,7 +576,10 @@ function append_files_to_fallback_list(path, files) {
                 pn += "?a=view";
                 c += " view";
                 //}
-                html += `<div class="list-group-item list-group-item-action">${UI.allow_selecting_files ? '<input class="form-check-input" style="margin-top: 0.3em;margin-right: 0.5em;" type="checkbox" value="' + link + '" id="flexCheckDefault">' : ''}`
+                html += `
+                <div class="list-group-item list-group-item-action">
+                ${UI.allow_selecting_files ? '<input class="form-check-input" style="margin-top: 0.3em;margin-right: 0.5em;" type="checkbox" value="' + link + '" id="flexCheckDefault">' : ''}
+                `
 
                 if ("|mp4|webm|avi|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|".indexOf(`|${ext}|`) >= 0) {
                     html += video_icon
@@ -597,12 +600,13 @@ function append_files_to_fallback_list(path, files) {
                 }
 
                 html += `
-                 <a class="countitems size_items list-group-item-action" style="text-decoration: none;" href="${p}&a=view">${item.name}</a>${UI.display_download ?
+                 <a class="countitems size_items list-group-item-action" style="text-decoration: none;" href="${p}&a=view">${item.name}</a>
+                 ${UI.display_download ?
                         `
-                     <a href="${link}">
-                     <i class="ri-download-2-line"></i>
-                     Download
-                     </a>
+                        <a href="${link}" class="btn btn-dim btn-primary">
+                        <i class="ri-download-2-line fs-3 me-1"></i>
+                        <span>Download</span>
+                        </a>
                      `
                         : ``}${UI.display_size ? `<span class="badge bg-primary float-end"> ` + item['size'] + ` </span>` : ``}${UI.display_time ? ` <span class="badge bg-info float-end"> ` + item['modifiedTime'] + ` </span>` : ``}</div>
                  `;
@@ -750,10 +754,11 @@ function append_files_to_list(path, files) {
             html += `
              <a class="countitems size_items list-group-item-action" style="text-decoration: none;" href="${pn}">${item.name}</a>${UI.display_download ? 
                 `
-             <a href="${link}">
-             <i class="ri-download-2-line"></i>
-             Download
-             </a>` : ``}${UI.display_size ? `<span class="badge bg-primary float-end"> ` + item['size'] + ` </span>` : ``}${UI.display_time ? ` <span class="badge bg-info float-end"> ` + item['modifiedTime'] + ` </span>` : ``}</div>
+                <a href="${link}" class="btn btn-dim btn-primary">
+                <i class="ri-download-2-line fs-3 me-1"></i>
+                <span>Download</span>
+                </a>
+             ` : ``}${UI.display_size ? `<span class="badge bg-primary float-end"> ` + item['size'] + ` </span>` : ``}${UI.display_time ? ` <span class="badge bg-info float-end"> ` + item['modifiedTime'] + ` </span>` : ``}</div>
              `;
         }
     }
