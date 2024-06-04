@@ -607,7 +607,7 @@ function append_files_to_fallback_list(path, files) {
                             `
                             <a href="${link}" class="btn btn-dim btn-primary p-1x">
                             <i class="ri-download-2-line fs-4 me-1"></i>
-                            <span>Download1a</span>
+                            <span>Download</span>
                             </a>
                          `
                             : ``}
