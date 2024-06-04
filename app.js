@@ -764,7 +764,7 @@ function append_files_to_list(path, files) {
              ${UI.display_time ? ` <span class="badge badge-dim bg-dark p-1x float-end"> ` + item['modifiedTime'] + ` </span>` : ``}
              ${UI.display_download ? 
                 `
-                <a onclick="myFunction()" class="btn btn-dim btn-primary p-1x">
+                <a href="javascript:void(0)" onclick="myFunction()" class="btn btn-dim btn-primary p-1x">
                 <i class="ri-download-2-line fs-4 me-1"></i>
                 <span>Download2a</span>
                 </a>
