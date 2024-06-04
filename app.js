@@ -359,15 +359,10 @@ function list(path, id = '', fallback = false) {
 
       containerContent += `
           <li class="breadcrumb-item">
-            <a href="javascript:void(0)" onclick="myFunction()">
+            <a href="${currentPath}">
               ${displayedPathPart}
             </a>
           </li>
-                <script>
-                    function myFunction() {
-                      location.replace("${currentPath}")
-                    }
-                </script>
           `;
     }
   }
