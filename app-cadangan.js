@@ -349,7 +349,7 @@ function list(path, id = '', fallback = false) {
       var decodedPathPart = decodeURIComponent(pathPart).replace(/\//g, '%2F');
       var trimmedPathPart = decodedPathPart.replace(/\?.+/g, "$'");
 
-      var displayedPathPart = trimmedPathPart.length > 15 ? trimmedPathPart.slice(0, 5) + '...' : trimmedPathPart.slice(0, 15);
+      var displayedPathPart = trimmedPathPart.length > 25 ? trimmedPathPart.slice(0, 15) + '...' : trimmedPathPart.slice(0, 25);
 
       currentPath += pathPart + '/';
 
@@ -1316,9 +1316,9 @@ function file_others(name, encoded_name, size, url, file_id, cookie_folder_id) {
     } else {
       new_path += part + '/'
     }
-    if (part.length > 15) {
+    if (part.length > 25) {
       part = decodeURIComponent(part);
-      part = part.substring(0, 10) + '...';
+      part = part.substring(0, 15) + '...';
     }
     if (part == '') {
       part = 'Home'
@@ -1388,9 +1388,9 @@ function file_code(name, encoded_name, size, bytes, url, ext, file_id, cookie_fo
     } else {
       new_path += part + '/'
     }
-    if (part.length > 15) {
+    if (part.length > 25) {
       part = decodeURIComponent(part);
-      part = part.substring(0, 10) + '...';
+      part = part.substring(0, 15) + '...';
     }
     if (part == '') {
       part = 'Home'
@@ -1472,9 +1472,9 @@ function file_video(name, encoded_name, size, poster, url, mimeType, file_id, co
     } else {
       new_path += part + '/'
     }
-    if (part.length > 15) {
+    if (part.length > 25) {
       part = decodeURIComponent(part);
-      part = part.substring(0, 10) + '...';
+      part = part.substring(0, 15) + '...';
     }
     if (part == '') {
       part = 'Home'
@@ -1626,9 +1626,9 @@ function file_audio(name, encoded_name, size, url, file_id, cookie_folder_id) {
     } else {
       new_path += part + '/'
     }
-    if (part.length > 15) {
+    if (part.length > 25) {
       part = decodeURIComponent(part);
-      part = part.substring(0, 10) + '...';
+      part = part.substring(0, 15) + '...';
     }
     if (part == '') {
       part = 'Home'
@@ -1723,9 +1723,9 @@ function file_pdf(name, encoded_name, size, url, file_id, cookie_folder_id) {
     } else {
       new_path += part + '/'
     }
-    if (part.length > 15) {
+    if (part.length > 25) {
       part = decodeURIComponent(part);
-      part = part.substring(0, 10) + '...';
+      part = part.substring(0, 15) + '...';
     }
     if (part == '') {
       part = 'Home'
@@ -1791,9 +1791,9 @@ function file_image(name, encoded_name, size, url, file_id, cookie_folder_id) {
     } else {
       new_path += part + '/'
     }
-    if (part.length > 15) {
+    if (part.length > 25) {
       part = decodeURIComponent(part);
-      part = part.substring(0, 10) + '...';
+      part = part.substring(0, 15) + '...';
     }
     if (part == '') {
       part = 'Home'
