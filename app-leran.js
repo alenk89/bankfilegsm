@@ -3,7 +3,7 @@
 // Initialize the page
 function init() {
 	document.siteName = $('title').html();
-	var html = `<header>
+	var html = `<header class="d-none">
    <div id="nav">
    </div>
 </header>
