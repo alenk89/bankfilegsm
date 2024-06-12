@@ -28,7 +28,7 @@ function init() {
   </div>
 </div>
 <br>
-<footer class="footer mt-auto py-3 text-muted ${UI.footer_style_class}" style="${UI.fixed_footer ?'position: fixed; ': ''}left: 0; bottom: 0; width: 100%; color: white; z-index: 9999;${UI.hide_footer ? ' display:none;': ' display:block;'}"> <div class="container" style="width: auto; padding: 0 10px;"> <p class="float-end"> <a href="#">Back to top</a> </p> ${UI.credit ? '<p>Redesigned with <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="red" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" /> </svg> by <a href="https://www.npmjs.com/package/@googledrive/index" target="_blank">TheFirstSpeedster</a>, based on Open Source Softwares.</p>' : ''} <p>© ${UI.copyright_year} - <a href=" ${UI.company_link}" target="_blank"> ${UI.company_name}</a>, All Rights Reserved.</p> </div> </footer>
+<footer class="footer mt-auto py-3 text-muted ${UI.footer_style_class}" style="${UI.fixed_footer ?'position: fixed; ': ''}left: 0; bottom: 0; width: 100%; color: white; z-index: 9999;${UI.hide_footer ? ' display:none;': ' display:block;'}"> <div class="container-fluid" style="width: auto; padding: 0 10px;"> <p class="float-end"> <a href="#">Back to top</a> </p> ${UI.credit ? '<p>Redesigned with <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="red" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" /> </svg> by <a href="https://www.npmjs.com/package/@googledrive/index" target="_blank">TheFirstSpeedster</a>, based on Open Source Softwares.</p>' : ''} <p>© ${UI.copyright_year} - <a href=" ${UI.company_link}" target="_blank"> ${UI.company_name}</a>, All Rights Reserved.</p> </div> </footer>
   `;
 	$('body').html(html);
 }
@@ -142,7 +142,7 @@ function nav(path) {
 	var html = "";
 	var cur = window.current_drive_order || 0;
 	html += `<nav class="navbar navbar-expand-lg${UI.fixed_header ?' fixed-top': ''} ${UI.header_style_class}">
-    <div class="container-fluid">
+    <div class="container-fluid-fluid">
   <a class="navbar-brand" href="/">${UI.logo_image ? '<img border="0" alt="'+UI.company_name+'" src="'+UI.logo_link_name+'" height="'+UI.logo_height+'" width="'+UI.logo_width+'">' : UI.logo_link_name}</a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -322,10 +322,10 @@ function requestSearch(params, resultCallback, retries = 3) {
 // Render file list
 function list(path, id = '', fallback = false) {
 	console.log(id);
-	var containerContent = `<div class="container">${UI.fixed_header ?'<br>': ''}
+	var container-fluidContent = `<div class="container-fluid">${UI.fixed_header ?'<br>': ''}
     <div id="update"></div>
     <div id="head_md" style="display:none; padding: 20px 20px;"></div>
-    <div class="container" id="select_items" style="padding: 0px 50px 10px; display:none;">
+    <div class="container-fluid" id="select_items" style="padding: 0px 50px 10px; display:none;">
       <div class="d-flex align-items-center justify-content-between">
         <div class="form-check mr-3">
           <input class="form-check-input" style="margin-top: 0.3em;margin-right: 0.5em;" type="checkbox" id="select-all-checkboxes">
@@ -357,11 +357,11 @@ function list(path, id = '', fallback = false) {
 				break;
 			}
 
-			containerContent += `<li class="breadcrumb-item"><a href="${currentPath}">${displayedPathPart}</a></li>`;
+			container-fluidContent += `<li class="breadcrumb-item"><a href="${currentPath}">${displayedPathPart}</a></li>`;
 		}
 	}
 
-	containerContent += `</ol>
+	container-fluidContent += `</ol>
     </nav>
   </div>
   <div id="list" class="list-group text-break"></div>
@@ -369,7 +369,7 @@ function list(path, id = '', fallback = false) {
   <div id="readme_md" style="display:none; padding: 20px 20px;"></div>
 </div>`;
 
-	$('#content').html(containerContent);
+	$('#content').html(container-fluidContent);
 
 	var password = localStorage.getItem('password' + path);
 
@@ -811,9 +811,9 @@ function append_files_to_list(path, files) {
  */
 function render_search_result_list() {
 	var content = `
-  <div class="container"><br>
+  <div class="container-fluid"><br>
   <div id="update"></div>
-  <div class="container" id="select_items" style="padding: 0px 50px 10px; display:none;">
+  <div class="container-fluid" id="select_items" style="padding: 0px 50px 10px; display:none;">
   <div class="d-flex align-items-center justify-content-between">
     <div class="form-check mr-3">
       <input class="form-check-input" style="margin-top: 0.3em;margin-right: 0.5em;" type="checkbox" id="select-all-checkboxes">
@@ -1151,7 +1151,7 @@ async function fallback(id, type) {
 			})
 			.catch(function(error) {
 				var content = `
-          <div class="container"><br>
+          <div class="container-fluid"><br>
           <div class="card text-center">
             <div class="card-body text-center">
               <div class="${UI.file_view_alert_class}" id="file_details" role="alert"><b>404.</b> That’s an error. ` + error + `</div>
@@ -1226,7 +1226,7 @@ async function file(path) {
 		})
 		.catch(function(error) {
 			var content = `
-          <div class="container"><br>
+          <div class="container-fluid"><br>
           <div class="card text-center">
             <div class="card-body text-center">
               <div class="${UI.file_view_alert_class}" id="file_details" role="alert"><b>404.</b> That’s an error. ` + error + `</div>
@@ -1281,9 +1281,9 @@ function file_others(name, encoded_name, size, url, file_id, cookie_folder_id) {
 		navigation += '<a href="' + new_path + '" class="breadcrumb-item">' + part + '</a>';
 	}
 
-	// Add the container and card elements
+	// Add the container-fluid and card elements
 	var content = `
-    <div class="container"><br>
+    <div class="container-fluid"><br>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           ${navigation}
@@ -1353,9 +1353,9 @@ function file_code(name, encoded_name, size, bytes, url, ext, file_id, cookie_fo
 		navigation += '<a href="' + new_path + '" class="breadcrumb-item">' + part + '</a>';
 	}
 
-	// Add the container and card elements
+	// Add the container-fluid and card elements
 	var content = `
-    <div class="container"><br>
+    <div class="container-fluid"><br>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           ${navigation}
@@ -1454,7 +1454,7 @@ function file_video(name, encoded_name, size, poster, url, mimeType, file_id, co
 			player_js = 'https://vjs.zencdn.net/' + player_config.videojs_version + '/video.js'
 			player_css = 'https://vjs.zencdn.net/' + player_config.videojs_version + '/video-js.css'
 		} else if (player_config.player == "dplayer") {
-			player = `<div id="player-container"></div>`
+			player = `<div id="player-container-fluid"></div>`
 			player_js = 'https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js'
 			player_css = 'https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css'
 		} else if (player_config.player == "jwplayer") {
@@ -1463,9 +1463,9 @@ function file_video(name, encoded_name, size, poster, url, mimeType, file_id, co
 			player_css = ''
 		}
 	}
-	// Add the container and card elements
+	// Add the container-fluid and card elements
 	var content = `
-    <div class="container text-center"><br>
+    <div class="container-fluid text-center"><br>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           ${navigation}
@@ -1521,7 +1521,7 @@ function file_video(name, encoded_name, size, poster, url, mimeType, file_id, co
 			const player = new videojs('vplayer');
 		} else if (player_config.player == "dplayer") {
 			const dp = new DPlayer({
-				container: document.getElementById('player-container'),
+				container-fluid: document.getElementById('player-container-fluid'),
 				screenshot: true,
 				video: {
 					url: url,
@@ -1591,9 +1591,9 @@ function file_audio(name, encoded_name, size, url, file_id, cookie_folder_id) {
 		navigation += '<a href="' + new_path + '" class="breadcrumb-item">' + part + '</a>';
 	}
 
-	// Add the container and card elements
+	// Add the container-fluid and card elements
 	var content = `
-    <div class="container text-center"><br>
+    <div class="container-fluid text-center"><br>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           ${navigation}
@@ -1688,9 +1688,9 @@ function file_pdf(name, encoded_name, size, url, file_id, cookie_folder_id) {
 		navigation += '<a href="' + new_path + '" class="breadcrumb-item">' + part + '</a>';
 	}
 
-	// Add the container and card elements
+	// Add the container-fluid and card elements
 	var content = `
-    <div class="container text-center"><br>
+    <div class="container-fluid text-center"><br>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           ${navigation}
@@ -1756,9 +1756,9 @@ function file_image(name, encoded_name, size, url, file_id, cookie_folder_id) {
 		navigation += '<a href="' + new_path + '" class="breadcrumb-item">' + part + '</a>';
 	}
 
-	// Add the container and card elements // wait until image is loaded and then hide spinner
+	// Add the container-fluid and card elements // wait until image is loaded and then hide spinner
 	var content = `
-    <div class="container text-center"><br>
+    <div class="container-fluid text-center"><br>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           ${navigation}
