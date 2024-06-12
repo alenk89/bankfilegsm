@@ -9,7 +9,7 @@ function init() {
 </header>
 <div class="loading" id="spinner" style="display:none;">Loading&#8230;</div>
 <div>
-<div id="content" style="padding-top: ${UI.header_padding}px;${UI.fixed_footer ?' padding-bottom: clamp(170px, 100%, 300px);': ''}">
+<div id="content" style="padding-top: ${UI.header_padding}px;${UI.fixed_footer ? ' padding-bottom: clamp(170px, 100%, 300px);' : ''}">
 </div>
 <div class="modal fade" id="SearchModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="SearchModelLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -28,7 +28,7 @@ function init() {
   </div>
 </div>
 <br>
-<footer class="footer mt-auto py-3 text-muted ${UI.footer_style_class}" style="${UI.fixed_footer ?'position: fixed; ': ''}left: 0; bottom: 0; width: 100%; color: white; z-index: 9999;${UI.hide_footer ? ' display:none;': ' display:block;'}"> <div class="container-fluid" style="width: auto; padding: 0 10px;"> <p class="float-end"> <a href="#">Back to top</a> </p> ${UI.credit ? '<p>Redesigned with <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="red" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" /> </svg> by <a href="https://www.npmjs.com/package/@googledrive/index" target="_blank">TheFirstSpeedster</a>, based on Open Source Softwares.</p>' : ''} <p>© ${UI.copyright_year} - <a href=" ${UI.company_link}" target="_blank"> ${UI.company_name}</a>, All Rights Reserved.</p> </div> </footer>
+<footer class="footer mt-auto py-3 text-muted ${UI.footer_style_class}" style="${UI.fixed_footer ? 'position: fixed; ' : ''}left: 0; bottom: 0; width: 100%; color: white; z-index: 9999;${UI.hide_footer ? ' display:none;' : ' display:block;'}"> <div class="container-fluid" style="width: auto; padding: 0 10px;"> <p class="float-end"> <a href="#">Back to top</a> </p> ${UI.credit ? '<p>Redesigned with <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="red" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" /> </svg> by <a href="https://www.npmjs.com/package/@googledrive/index" target="_blank">TheFirstSpeedster</a>, based on Open Source Softwares.</p>' : ''} <p>© ${UI.copyright_year} - <a href=" ${UI.company_link}" target="_blank"> ${UI.company_name}</a>, All Rights Reserved.</p> </div> </footer>
   `;
 	$('body').html(html);
 }
@@ -141,9 +141,9 @@ function nav(path) {
 	var model = window.MODEL;
 	var html = "";
 	var cur = window.current_drive_order || 0;
-	html += `<nav class="navbar navbar-expand-lg${UI.fixed_header ?' fixed-top': ''} ${UI.header_style_class}">
+	html += `<nav class="navbar navbar-expand-lg${UI.fixed_header ? ' fixed-top' : ''} ${UI.header_style_class}">
     <div class="container-fluid">
-  <a class="navbar-brand" href="/">${UI.logo_image ? '<img border="0" alt="'+UI.company_name+'" src="'+UI.logo_link_name+'" height="'+UI.logo_height+'" width="'+UI.logo_width+'">' : UI.logo_link_name}</a>
+  <a class="navbar-brand" href="/">${UI.logo_image ? '<img border="0" alt="' + UI.company_name + '" src="' + UI.logo_link_name + '" height="' + UI.logo_height + '" width="' + UI.logo_width + '">' : UI.logo_link_name}</a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -165,7 +165,7 @@ function nav(path) {
 
 	html += `<li class="nav-item">
     <a class="nav-link" href="${UI.contact_link}" target="_blank">${UI.nav_link_4}</a>
-  </li>${UI.show_logout_button ?'<li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>': ''}`;
+  </li>${UI.show_logout_button ? '<li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>' : ''}`;
 
 	var search_text = model.is_search_page ? (model.q || '') : '';
 	var search_bar = `
@@ -220,19 +220,19 @@ function requestListPath(path, params, resultCallback, authErrorCallback, retrie
 
 	function performRequest() {
 		fetch(fallback ? "/0:fallback" : path, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(requestData)
-			})
-			.then(function(response) {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(requestData)
+		})
+			.then(function (response) {
 				if (!response.ok) {
 					throw new Error('Request failed');
 				}
 				return response.json();
 			})
-			.then(function(res) {
+			.then(function (res) {
 				if (res && res.error && res.error.code === 401) {
 					// Password verification failed
 					askPassword(path);
@@ -245,7 +245,7 @@ function requestListPath(path, params, resultCallback, authErrorCallback, retrie
 					$('#update').hide();
 				}
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				if (retries > 0) {
 					sleep(2000);
 					document.getElementById('update').innerHTML = `<div class='alert alert-info' role='alert'> Retrying...</div></div></div>`;
@@ -278,19 +278,19 @@ function requestSearch(params, resultCallback, retries = 3) {
 
 	function performRequest(retries) {
 		fetch(`/${window.current_drive_order}:search`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(p)
-			})
-			.then(function(response) {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(p)
+		})
+			.then(function (response) {
 				if (!response.ok) {
 					throw new Error('Request failed');
 				}
 				return response.json();
 			})
-			.then(function(res) {
+			.then(function (res) {
 				if (res && res.data === null) {
 					$('#spinner').remove();
 					$('#list').html(`<div class='alert alert-danger' role='alert'> Server didn't send any data.</div></div></div>`);
@@ -301,7 +301,7 @@ function requestSearch(params, resultCallback, retries = 3) {
 					$('#update').remove();
 				}
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				if (retries > 0) {
 					sleep(2000);
 					$('#update').html(`<div class='alert alert-info' role='alert'> Retrying...</div></div></div>`);
@@ -322,7 +322,7 @@ function requestSearch(params, resultCallback, retries = 3) {
 // Render file list
 function list(path, id = '', fallback = false) {
 	console.log(id);
-	var containerContent = `<div class="container-fluid">${UI.fixed_header ?'<br>': ''}
+	var containerContent = `<div class="container-fluid">${UI.fixed_header ? '<br>' : ''}
     <div id="update"></div>
     <div id="head_md" style="display:none; padding: 20px 20px;"></div>
     <div class="container-fluid" id="select_items" style="padding: 0px 50px 10px; display:none;">
@@ -356,7 +356,13 @@ function list(path, id = '', fallback = false) {
 				break;
 			}
 
-			containerContent += `<li class="breadcrumb-item"><a href="${currentPath}">${displayedPathPart}</a></li>`;
+			containerContent += `
+			<li class="breadcrumb-item">
+				<a href="${currentPath}">
+					${displayedPathPart}
+				</a>
+			</li>
+			`;
 		}
 	}
 
@@ -401,7 +407,7 @@ function list(path, id = '', fallback = false) {
 				append_files_to_list(path, res['data']['files']);
 			}
 			if (window.scroll_status.event_bound !== true) {
-				$(window).on('scroll', function() {
+				$(window).on('scroll', function () {
 					var scrollTop = $(this).scrollTop();
 					var scrollHeight = getDocumentHeight();
 					var windowHeight = $(this).height();
@@ -420,19 +426,19 @@ function list(path, id = '', fallback = false) {
 						if (fallback) {
 							console.log('fallback inside handleSuccessResult');
 							requestListPath(path, {
-									id: id,
-									password: prevReqParams['password'],
-									page_token: $list.data('nextPageToken'),
-									page_index: $list.data('curPageIndex') + 1
-								},
+								id: id,
+								password: prevReqParams['password'],
+								page_token: $list.data('nextPageToken'),
+								page_index: $list.data('curPageIndex') + 1
+							},
 								handleSuccessResult,
 								null, 5, id, fallback = true);
 						} else {
 							requestListPath(path, {
-									password: prevReqParams['password'],
-									page_token: $list.data('nextPageToken'),
-									page_index: $list.data('curPageIndex') + 1
-								},
+								password: prevReqParams['password'],
+								page_token: $list.data('nextPageToken'),
+								page_index: $list.data('curPageIndex') + 1
+							},
 								handleSuccessResult,
 								null);
 						}
@@ -451,16 +457,16 @@ function list(path, id = '', fallback = false) {
 	if (fallback) {
 		console.log('fallback inside list');
 		requestListPath(path, {
-				id: id,
-				password: password
-			},
+			id: id,
+			password: password
+		},
 			handleSuccessResult,
 			null, null, fallback = true);
 	} else {
 		console.log("handling this")
 		requestListPath(path, {
-				password: password
-			},
+			password: password
+		},
 			handleSuccessResult,
 			null);
 	}
@@ -477,10 +483,10 @@ function list(path, id = '', fallback = false) {
 		const selectedItemsData = [];
 
 		// Loop through each checked checkbox
-    if (checkedItems.length === 0) {
-      alert("No items selected!");
-      return;
-    }
+		if (checkedItems.length === 0) {
+			alert("No items selected!");
+			return;
+		}
 		checkedItems.forEach((item) => {
 			// Get the value of the checkbox (in this case, the URL)
 			const itemData = item.value;
@@ -558,13 +564,13 @@ function append_files_to_fallback_list(path, files) {
 				var c = "file";
 				// README is displayed after the last page is loaded, otherwise it will affect the scroll event
 				if (is_lastpage_loaded && item.name == "README.md" && UI.render_readme_md) {
-					get_file(p, item, function(data) {
+					get_file(p, item, function (data) {
 						markdown("#readme_md", data);
 						$("img").addClass("img-fluid")
 					});
 				}
 				if (item.name == "HEAD.md" && UI.render_head_md) {
-					get_file(p, item, function(data) {
+					get_file(p, item, function (data) {
 						markdown("#head_md", data);
 						$("img").addClass("img-fluid")
 					});
@@ -575,7 +581,7 @@ function append_files_to_fallback_list(path, files) {
 				pn += "?a=view";
 				c += " view";
 				//}
-				html += `<div class="list-group-item list-group-item-action">${UI.allow_selecting_files ? '<input class="form-check-input" style="margin-top: 0.3em;margin-right: 0.5em;" type="checkbox" value="'+link+'" id="flexCheckDefault">' : ''}`
+				html += `<div class="list-group-item list-group-item-action">${UI.allow_selecting_files ? '<input class="form-check-input" style="margin-top: 0.3em;margin-right: 0.5em;" type="checkbox" value="' + link + '" id="flexCheckDefault">' : ''}`
 
 				if ("|mp4|webm|avi|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|".indexOf(`|${ext}|`) >= 0) {
 					html += video_icon
@@ -605,18 +611,18 @@ function append_files_to_fallback_list(path, files) {
 
 		/*let targetObj = {};
 		targetFiles.forEach((myFilepath, myIndex) => {
-		    if (!targetObj[myFilepath]) {
-		        targetObj[myFilepath] = {
-		            filepath: myFilepath,
-		            prev: myIndex === 0 ? null : targetFiles[myIndex - 1],
-		            next: myIndex === targetFiles.length - 1 ? null : targetFiles[myIndex + 1],
-		        }
-		    }
+			if (!targetObj[myFilepath]) {
+				targetObj[myFilepath] = {
+					filepath: myFilepath,
+					prev: myIndex === 0 ? null : targetFiles[myIndex - 1],
+					next: myIndex === targetFiles.length - 1 ? null : targetFiles[myIndex + 1],
+				}
+			}
 		})
 		// console.log(targetObj)
 		if (Object.keys(targetObj).length) {
-		    localStorage.setItem(path, JSON.stringify(targetObj));
-		    // console.log(path)
+			localStorage.setItem(path, JSON.stringify(targetObj));
+			// console.log(path)
 		}*/
 
 		if (targetFiles.length > 0) {
@@ -699,43 +705,43 @@ function append_files_to_list(path, files) {
 			var c = "file";
 			// README is displayed after the last page is loaded, otherwise it will affect the scroll event
 			if (is_lastpage_loaded && item.name == "README.md" && UI.render_readme_md) {
-				get_file(p, item, function(data) {
+				get_file(p, item, function (data) {
 					markdown("#readme_md", data);
 					$("img").addClass("img-fluid")
 				});
 			}
 			if (item.name == "HEAD.md" && UI.render_head_md) {
-				get_file(p, item, function(data) {
+				get_file(p, item, function (data) {
 					markdown("#head_md", data);
 					$("img").addClass("img-fluid")
 				});
 			}
 			var ext = item.fileExtension
-      console.log(ext)
+			console.log(ext)
 			//if ("|html|php|css|go|java|js|json|txt|sh|md|mp4|webm|avi|bmp|jpg|jpeg|png|gif|m4a|mp3|flac|wav|ogg|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|pdf|".indexOf(`|${ext}|`) >= 0) {
 			//targetFiles.push(filepath);
 			pn += "?a=view";
 			c += " view";
 			//}
-			html += `<div class="list-group-item list-group-item-action">${UI.allow_selecting_files ? '<input class="form-check-input" style="margin-top: 0.3em;margin-right: 0.5em;" type="checkbox" value="'+link+'" id="flexCheckDefault">' : ''}`
+			html += `<div class="list-group-item list-group-item-action">${UI.allow_selecting_files ? '<input class="form-check-input" style="margin-top: 0.3em;margin-right: 0.5em;" type="checkbox" value="' + link + '" id="flexCheckDefault">' : ''}`
 
-      if ("|mp4|webm|avi|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|".indexOf(`|${ext}|`) >= 0) {
-        html += video_icon
-      } else if ("|html|php|css|go|java|js|json|txt|sh|".indexOf(`|${ext}|`) >= 0) {
-        html += code_icon
-      } else if ("|zip|rar|tar|.7z|.gz|".indexOf(`|${ext}|`) >= 0) {
-        html += zip_icon
-      } else if ("|bmp|jpg|jpeg|png|gif|".indexOf(`|${ext}|`) >= 0) {
-        html += image_icon
-      } else if ("|m4a|mp3|flac|wav|ogg|".indexOf(`|${ext}|`) >= 0) {
-        html += audio_icon
-      } else if ("|md|".indexOf(`|${ext}|`) >= 0) {
-        html += markdown_icon
-      } else if ("|pdf|".indexOf(`|${ext}|`) >= 0) {
-        html += pdf_icon
-      } else {
-        html += file_icon
-      }
+			if ("|mp4|webm|avi|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|".indexOf(`|${ext}|`) >= 0) {
+				html += video_icon
+			} else if ("|html|php|css|go|java|js|json|txt|sh|".indexOf(`|${ext}|`) >= 0) {
+				html += code_icon
+			} else if ("|zip|rar|tar|.7z|.gz|".indexOf(`|${ext}|`) >= 0) {
+				html += zip_icon
+			} else if ("|bmp|jpg|jpeg|png|gif|".indexOf(`|${ext}|`) >= 0) {
+				html += image_icon
+			} else if ("|m4a|mp3|flac|wav|ogg|".indexOf(`|${ext}|`) >= 0) {
+				html += audio_icon
+			} else if ("|md|".indexOf(`|${ext}|`) >= 0) {
+				html += markdown_icon
+			} else if ("|pdf|".indexOf(`|${ext}|`) >= 0) {
+				html += pdf_icon
+			} else {
+				html += file_icon
+			}
 
 			html += ` <a class="countitems size_items list-group-item-action" style="text-decoration: none; color: ${UI.css_a_tag_color};" href="${pn}">${item.name}</a>${UI.display_download ? `<a href="${link}"><svg class="float-end"width="25px" style="margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"> <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"></path> <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"></path> </svg></a>` : ``}${UI.display_size ? `<span class="badge bg-primary float-end"> ` + item['size'] + ` </span>` : ``}${UI.display_time ? ` <span class="badge bg-info float-end"> ` + item['modifiedTime'] + ` </span>` : ``}</div>`;
 		}
@@ -747,18 +753,18 @@ function append_files_to_list(path, files) {
 
 	/*let targetObj = {};
 	targetFiles.forEach((myFilepath, myIndex) => {
-	    if (!targetObj[myFilepath]) {
-	        targetObj[myFilepath] = {
-	            filepath: myFilepath,
-	            prev: myIndex === 0 ? null : targetFiles[myIndex - 1],
-	            next: myIndex === targetFiles.length - 1 ? null : targetFiles[myIndex + 1],
-	        }
-	    }
+		if (!targetObj[myFilepath]) {
+			targetObj[myFilepath] = {
+				filepath: myFilepath,
+				prev: myIndex === 0 ? null : targetFiles[myIndex - 1],
+				next: myIndex === targetFiles.length - 1 ? null : targetFiles[myIndex + 1],
+			}
+		}
 	})
 	// console.log(targetObj)
 	if (Object.keys(targetObj).length) {
-	    localStorage.setItem(path, JSON.stringify(targetObj));
-	    // console.log(path)
+		localStorage.setItem(path, JSON.stringify(targetObj));
+		// console.log(path)
 	}*/
 
 	if (targetFiles.length > 0) {
@@ -863,16 +869,16 @@ function render_search_result_list() {
 			append_search_result_to_list(res['data']['files']);
 			if (window.scroll_status.event_bound !== true) {
 				// Bind event, if not yet bound
-				$(window).on('scroll', function() {
+				$(window).on('scroll', function () {
 					var scrollTop = $(this).scrollTop();
 					var scrollHeight = getDocumentHeight();
 					var windowHeight = $(this).height();
 					// Roll to the bottom
 					if (scrollTop + windowHeight > scrollHeight - (Os.isMobile ? 130 : 80)) {
 						/*
-     When the event of scrolling to the bottom is triggered, if it is already loading at this time, the event is ignored;
-                 Otherwise, go to loading and occupy the loading lock, indicating that loading is in progress
-             */
+	 When the event of scrolling to the bottom is triggered, if it is already loading at this time, the event is ignored;
+				 Otherwise, go to loading and occupy the loading lock, indicating that loading is in progress
+			 */
 						if (window.scroll_status.loading_lock === true) {
 							return;
 						}
@@ -884,11 +890,11 @@ function render_search_result_list() {
 
 						let $list = $('#list');
 						requestSearch({
-								q: window.MODEL.q,
-								page_token: $list.data('nextPageToken'),
-								// Request next page
-								page_index: $list.data('curPageIndex') + 1
-							},
+							q: window.MODEL.q,
+							page_token: $list.data('nextPageToken'),
+							// Request next page
+							page_index: $list.data('curPageIndex') + 1
+						},
 							searchSuccessCallback
 						)
 					}
@@ -917,10 +923,10 @@ function render_search_result_list() {
 
 		// Create an array to store the selected items' data
 		const selectedItemsData = [];
-    if (checkedItems.length === 0) {
-      alert("No items selected!");
-      return;
-    }
+		if (checkedItems.length === 0) {
+			alert("No items selected!");
+			return;
+		}
 		// Loop through each checked checkbox
 		checkedItems.forEach((item) => {
 			// Get the value of the checkbox (in this case, the URL)
@@ -983,7 +989,7 @@ function append_search_result_to_list(files) {
 				item['size'] = formatFileSize(item['size']);
 				var ext = item.fileExtension
 				var link = UI.second_domain_for_dl ? UI.downloaddomain + item.link : window.location.origin + item.link;
-				html += `<div style="color: ${UI.css_a_tag_color};" gd-type="$item['mimeType']}" class="countitems size_items list-group-item list-group-item-action">${UI.allow_selecting_files ? '<input class="form-check-input" style="margin-top: 0.3em;margin-right: 0.5em;" type="checkbox" value="'+link+'" id="flexCheckDefault">' : ''}`
+				html += `<div style="color: ${UI.css_a_tag_color};" gd-type="$item['mimeType']}" class="countitems size_items list-group-item list-group-item-action">${UI.allow_selecting_files ? '<input class="form-check-input" style="margin-top: 0.3em;margin-right: 0.5em;" type="checkbox" value="' + link + '" id="flexCheckDefault">' : ''}`
 
 				if ("|mp4|webm|avi|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|".indexOf(`|${ext}|`) >= 0) {
 					html += video_icon
@@ -1052,20 +1058,20 @@ function onSearchResultItemClick(file_id, can_preview) {
 	};
 	// Request a path
 	fetch(`/${cur}:id2path`, {
-			method: 'POST',
-			body: JSON.stringify(p),
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			}
-		})
-		.then(function(response) {
+		method: 'POST',
+		body: JSON.stringify(p),
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		}
+	})
+		.then(function (response) {
 			if (response.ok) {
 				return response.json();
 			} else {
 				throw new Error('Request failed.');
 			}
 		})
-		.then(function(obj) {
+		.then(function (obj) {
 			var href = `${obj.path}`;
 			var encodedUrl = href.replace(new RegExp('#', 'g'), '%23').replace(new RegExp('\\?', 'g'), '%3F')
 			title = `Result`;
@@ -1073,7 +1079,7 @@ function onSearchResultItemClick(file_id, can_preview) {
 			content = `<a class="btn btn-info" href="${encodedUrl}${can_preview ? '?a=view' : ''}">Open</a> <a class="btn btn-secondary" href="${encodedUrl}${can_preview ? '?a=view' : ''}" target="_blank">Open in New Tab</a>`;
 			$('#modal-body-space').html(content);
 		})
-		.catch(function(error) {
+		.catch(function (error) {
 			console.log(error);
 			var link = ""
 			title = `Fallback Method`;
@@ -1089,7 +1095,7 @@ function get_file(path, file, callback) {
 	if (data != undefined) {
 		return callback(data);
 	} else {
-		$.get(path, function(d) {
+		$.get(path, function (d) {
 			localStorage.setItem(key, d);
 			callback(d);
 		});
@@ -1101,21 +1107,21 @@ async function fallback(id, type) {
 		var cookie_folder_id = await getCookie("root_id") || '';
 		$('#content').html(`<div class="d-flex justify-content-center" style="height: 150px"><div class="spinner-border ${UI.loading_spinner_class} m-5" role="status" id="spinner"><span class="sr-only"></span></div></div>`);
 		fetch("/0:fallback", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					id
-				}),
-			})
-			.then(function(response) {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				id
+			}),
+		})
+			.then(function (response) {
 				if (!response.ok) {
 					throw new Error("Request failed");
 				}
 				return response.json();
 			})
-			.then(function(obj) {
+			.then(function (obj) {
 				console.log(obj);
 				var mimeType = obj.mimeType;
 				var fileExtension = obj.fileExtension
@@ -1148,7 +1154,7 @@ async function fallback(id, type) {
 					}
 				}
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				var content = `
           <div class="container-fluid"><br>
           <div class="card text-center">
@@ -1176,21 +1182,21 @@ async function file(path) {
 	var name = path.split('/').pop();
 	$('#content').html(`<div class="d-flex justify-content-center" style="height: 150px"><div class="spinner-border ${UI.loading_spinner_class} m-5" role="status" id="spinner"><span class="sr-only"></span></div></div>`);
 	fetch("", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				path: path
-			}),
-		})
-		.then(function(response) {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			path: path
+		}),
+	})
+		.then(function (response) {
 			if (!response.ok) {
 				throw new Error("Request failed");
 			}
 			return response.json();
 		})
-		.then(function(obj) {
+		.then(function (obj) {
 			console.log(obj);
 			var mimeType = obj.mimeType;
 			var fileExtension = obj.fileExtension
@@ -1223,7 +1229,7 @@ async function file(path) {
 				}
 			}
 		})
-		.catch(function(error) {
+		.catch(function (error) {
 			var content = `
           <div class="container-fluid"><br>
           <div class="card text-center">
@@ -1308,7 +1314,7 @@ function file_others(name, encoded_name, size, url, file_id, cookie_folder_id) {
                   <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${encoded_name};end">1DM+ (Plus)</a>
                 </div>
             </div>
-            ` + copyButton + copyFileBox+`
+            ` + copyButton + copyFileBox + `
             </div>
             <br></div>`;
 	$("#content").html(content);
@@ -1393,7 +1399,7 @@ function file_code(name, encoded_name, size, bytes, url, ext, file_id, cookie_fo
 	var spinner = '<div class="d-flex justify-content-center"><div class="spinner-border m-5" role="status"><span class="sr-only"></span></div></div>';
 	$("#code_spinner").html(spinner);
 	if (bytes <= 1024 * 1024 * 2) {
-		$.get(url, function(data) {
+		$.get(url, function (data) {
 			$('#editor').html($('<div/>').text(data).html());
 			$("#code_spinner").html("");
 			var code_type = "Text";
@@ -1431,7 +1437,7 @@ function file_video(name, encoded_name, size, poster, url, mimeType, file_id, co
 			part = part.substring(0, 50) + '...';
 		}
 		if (part == '') {
-			part = 'Home'
+			part = ''
 		}
 		navigation += '<a href="' + new_path + '" class="breadcrumb-item">' + part + '</a>';
 	}
@@ -1499,7 +1505,7 @@ function file_video(name, encoded_name, size, poster, url, mimeType, file_id, co
               <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${encoded_name};end">1DM+ (Plus)</a>
               </div>
           </div>
-          `+copyButton+copyFileBox+`
+          `+ copyButton + copyFileBox + `
           
           </div>
           </div>
@@ -1512,7 +1518,7 @@ function file_video(name, encoded_name, size, poster, url, mimeType, file_id, co
 	// Load Video.js and initialize the player
 	var videoJsScript = document.createElement('script');
 	videoJsScript.src = player_js;
-	videoJsScript.onload = function() {
+	videoJsScript.onload = function () {
 		// Video.js is loaded, initialize the player
 		if (player_config.player == "plyr") {
 			const player = new Plyr('#player');
@@ -1634,7 +1640,7 @@ function file_audio(name, encoded_name, size, url, file_id, cookie_folder_id) {
               <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${encoded_name};end">1DM+ (Plus)</a>
               </div>
           </div>
-          `+copyButton+copyFileBox+`
+          `+ copyButton + copyFileBox + `
           <br>
           </div>
           </div>
@@ -1647,7 +1653,7 @@ function file_audio(name, encoded_name, size, url, file_id, cookie_folder_id) {
 	// Load Video.js and initialize the player
 	var videoJsScript = document.createElement('script');
 	videoJsScript.src = 'https://vjs.zencdn.net/' + UI.videojs_version + '/video.min.js';
-	videoJsScript.onload = function() {
+	videoJsScript.onload = function () {
 		// Video.js is loaded, initialize the player
 		const player = videojs('aplayer');
 	};
@@ -1836,7 +1842,7 @@ function formatFileSize(bytes) {
 }
 
 
-String.prototype.trim = function(char) {
+String.prototype.trim = function (char) {
 	if (char) {
 		return this.replace(new RegExp('^\\' + char + '+|\\' + char + '+$', 'g'), '');
 	}
@@ -1851,25 +1857,25 @@ function markdown(el, data) {
 }
 
 // Listen for fallback events
-window.onpopstate = function() {
+window.onpopstate = function () {
 	var path = window.location.pathname;
 	render(path);
 }
 
-$(function() {
+$(function () {
 	init();
 	var path = window.location.pathname;
 	/*$("body").on("click", '.folder', function () {
-	    var url = $(this).attr('href');
-	    history.pushState(null, null, url);
-	    render(url);
-	    return false;
+		var url = $(this).attr('href');
+		history.pushState(null, null, url);
+		render(url);
+		return false;
 	});
 	$("body").on("click", '.view', function () {
-	    var url = $(this).attr('href');
-	    history.pushState(null, null, url);
-	    render(url);
-	    return false;
+		var url = $(this).attr('href');
+		history.pushState(null, null, url);
+		render(url);
+		return false;
 	});*/
 
 	render(path);
@@ -1882,11 +1888,11 @@ function copyFunction() {
 	copyText.setSelectionRange(0, 99999);
 
 	navigator.clipboard.writeText(copyText.value)
-		.then(function() {
+		.then(function () {
 			var tooltip = document.getElementById("myTooltip");
 			tooltip.innerHTML = "Copied";
 		})
-		.catch(function(error) {
+		.catch(function (error) {
 			console.error("Failed to copy text: ", error);
 		});
 }
