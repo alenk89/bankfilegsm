@@ -28,7 +28,7 @@ function init() {
   </div>
 </div>
 <br>
-<footer class="footer mt-auto py-3 text-muted ${UI.footer_style_class}" style="${UI.fixed_footer ?'position: fixed; ': ''}left: 0; bottom: 0; width: 100%; color: white; z-index: 9999;${UI.hide_footer ? ' display:none;': ' display:block;'}"> <div class="container" style="width: auto; padding: 0 10px;"> <p class="float-end"> <a href="#">Back to top</a> </p> ${UI.credit ? '<p>Redesigned with <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="red" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" /> </svg> by <a href="https://www.npmjs.com/package/@googledrive/index" target="_blank">TheFirstSpeedster</a>, based on Open Source Softwares.</p>' : ''} <p>© ${UI.copyright_year} - <a href=" ${UI.company_link}" target="_blank"> ${UI.company_name}</a>, All Rights Reserved.</p> </div> </footer>
+<footer class="footer mt-auto py-3 text-muted ${UI.footer_style_class}" style="${UI.fixed_footer ?'position: fixed; ': ''}left: 0; bottom: 0; width: 100%; color: white; z-index: 9999;${UI.hide_footer ? ' display:none;': ' display:block;'}"> <div class="container-fluid" style="width: auto; padding: 0 10px;"> <p class="float-end"> <a href="#">Back to top</a> </p> ${UI.credit ? '<p>Redesigned with <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="red" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" /> </svg> by <a href="https://www.npmjs.com/package/@googledrive/index" target="_blank">TheFirstSpeedster</a>, based on Open Source Softwares.</p>' : ''} <p>© ${UI.copyright_year} - <a href=" ${UI.company_link}" target="_blank"> ${UI.company_name}</a>, All Rights Reserved.</p> </div> </footer>
   `;
 	$('body').html(html);
 }
@@ -322,10 +322,10 @@ function requestSearch(params, resultCallback, retries = 3) {
 // Render file list
 function list(path, id = '', fallback = false) {
 	console.log(id);
-	var containerContent = `<div class="container">${UI.fixed_header ?'<br>': ''}
+	var containerContent = `<div class="container-fluid">${UI.fixed_header ?'<br>': ''}
     <div id="update"></div>
     <div id="head_md" style="display:none; padding: 20px 20px;"></div>
-    <div class="container" id="select_items" style="padding: 0px 50px 10px; display:none;">
+    <div class="container-fluid" id="select_items" style="padding: 0px 50px 10px; display:none;">
       <div class="d-flex align-items-center justify-content-between">
         <div class="form-check mr-3">
           <input class="form-check-input" style="margin-top: 0.3em;margin-right: 0.5em;" type="checkbox" id="select-all-checkboxes">
@@ -336,8 +336,7 @@ function list(path, id = '', fallback = false) {
     </div>
     <div class="${UI.path_nav_alert_class} d-flex align-items-center" role="alert" style="margin-bottom: 0; padding-bottom: 0rem;">
       <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-        <ol class="breadcrumb" id="folderne">
-          <li class="breadcrumb-item"><a href="/">Home</a></li>`;
+        <ol class="breadcrumb" id="folderne">`;
 
 	var navfulllink = window.location.pathname;
 	var navarray = navfulllink.trim('/').split('/');
@@ -811,9 +810,9 @@ function append_files_to_list(path, files) {
  */
 function render_search_result_list() {
 	var content = `
-  <div class="container"><br>
+  <div class="container-fluid"><br>
   <div id="update"></div>
-  <div class="container" id="select_items" style="padding: 0px 50px 10px; display:none;">
+  <div class="container-fluid" id="select_items" style="padding: 0px 50px 10px; display:none;">
   <div class="d-flex align-items-center justify-content-between">
     <div class="form-check mr-3">
       <input class="form-check-input" style="margin-top: 0.3em;margin-right: 0.5em;" type="checkbox" id="select-all-checkboxes">
@@ -1151,7 +1150,7 @@ async function fallback(id, type) {
 			})
 			.catch(function(error) {
 				var content = `
-          <div class="container"><br>
+          <div class="container-fluid"><br>
           <div class="card text-center">
             <div class="card-body text-center">
               <div class="${UI.file_view_alert_class}" id="file_details" role="alert"><b>404.</b> That’s an error. ` + error + `</div>
@@ -1226,7 +1225,7 @@ async function file(path) {
 		})
 		.catch(function(error) {
 			var content = `
-          <div class="container"><br>
+          <div class="container-fluid"><br>
           <div class="card text-center">
             <div class="card-body text-center">
               <div class="${UI.file_view_alert_class}" id="file_details" role="alert"><b>404.</b> That’s an error. ` + error + `</div>
@@ -1283,7 +1282,7 @@ function file_others(name, encoded_name, size, url, file_id, cookie_folder_id) {
 
 	// Add the container and card elements
 	var content = `
-    <div class="container"><br>
+    <div class="container-fluid"><br>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           ${navigation}
@@ -1355,7 +1354,7 @@ function file_code(name, encoded_name, size, bytes, url, ext, file_id, cookie_fo
 
 	// Add the container and card elements
 	var content = `
-    <div class="container"><br>
+    <div class="container-fluid"><br>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           ${navigation}
@@ -1465,7 +1464,7 @@ function file_video(name, encoded_name, size, poster, url, mimeType, file_id, co
 	}
 	// Add the container and card elements
 	var content = `
-    <div class="container text-center"><br>
+    <div class="container-fluid text-center"><br>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           ${navigation}
@@ -1593,7 +1592,7 @@ function file_audio(name, encoded_name, size, url, file_id, cookie_folder_id) {
 
 	// Add the container and card elements
 	var content = `
-    <div class="container text-center"><br>
+    <div class="container-fluid text-center"><br>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           ${navigation}
@@ -1690,7 +1689,7 @@ function file_pdf(name, encoded_name, size, url, file_id, cookie_folder_id) {
 
 	// Add the container and card elements
 	var content = `
-    <div class="container text-center"><br>
+    <div class="container-fluid text-center"><br>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           ${navigation}
@@ -1758,7 +1757,7 @@ function file_image(name, encoded_name, size, url, file_id, cookie_folder_id) {
 
 	// Add the container and card elements // wait until image is loaded and then hide spinner
 	var content = `
-    <div class="container text-center"><br>
+    <div class="container-fluid text-center"><br>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           ${navigation}
