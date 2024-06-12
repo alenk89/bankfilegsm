@@ -1430,7 +1430,9 @@ function file_video(name, encoded_name, size, poster, url, mimeType, file_id, co
 			part = decodeURIComponent(part);
 			part = part.substring(0, 50) + '...';
 		}
-		if (part == '')
+		if (part == '') {
+			part = 'Home'
+		}
 		navigation += '<a href="' + new_path + '" class="breadcrumb-item">' + part + '</a>';
 	}
 	let player
